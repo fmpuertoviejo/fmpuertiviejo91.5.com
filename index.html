@@ -1,100 +1,38 @@
 <!DOCTYPE html>
-<html lang="es">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FM PUERTO VIEJO 91.5</title>
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Raleway', sans-serif;
-            background-color: #129ff0;
-            color: #000000;
-            text-align: center;
-        }
-        header, footer {
-            background-color: #0a090a;
-            color: rgb(248, 243, 243);
-            padding: 10px 0;
-        }
-        .content {
-            margin: 20px;
-        }
-        .section {
-            margin-bottom: 40px;
-        }
-        .team-member {
-            margin: 20px 0;
-        }
-        .team-member img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-        }
-    </style>
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/lunaradio-sincors.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400">
+    <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Unica+One&display=swap">
+    <style type="text/css"></style>
 </head>
 <body>
-    <header>
-        <h1>FM PUERTO VIEJO 91.5</h1>
-    </header>
-    <div class="content">
-        <div id="stream" style="width:auto; height:300px;"></div>
-        <script src="https://sistemahost.com/playergenerator/js/jquery-3.2.1.min.js"></script>
-        <script src="https://sistemahost.com/playergenerator/js/player.js"></script>
-       <div id="stream" style="width:auto; height:300px;"></div>
-<script src="https://sistemahost.com/playergenerator/js/jquery-3.2.1.min.js"></script>
-<script src="https://sistemahost.com/playergenerator/js/player.js"></script>
-
-<script> 
-$('#stream').lunaradio({     streamurl: 'https://http://server.laradio.online:8429', 
-    radioname: 'FM PUERTO VIEJO 91.5', 
-    coverimage: 'https://i.postimg.cc/cCQdH4x1/logo-radio.png', 
-    onlycoverimage: false,     userinterface: 'big',     backgroundcolor: '#ffffff', 
-    fontcolor: '#000000',     hightlightcolor: '#6c757d',     fontname: 'Raleway', 
-    googlefont: 'Raleway:wght@100',     fontratio: '0.4',     scroll: 'true', 
-    coverstyle: 'animated',     usevisualizer: 'real',     visualizertype: '1', 
-    streamtype: 'shoutcast2',     shoutcastpath: '/stream',     shoutcastid: '1', 
-    autoplay: 'true',     metadatainterval: '5000',     volume: '100', 
-    usestreamcorsproxy: 'true', }); </script>
-        <div class="section">
-            <h2>¿Quiénes Somos?</h2>
-            <p>Somos FM PUERTO VIEJO 91.5, una radio dedicada a brindar la mejor música y contenido a nuestra audiencia.</p>
-        </div>
-        <div class="section">
-            <h2>Integrantes de la Radio</h2>
-            <div class="team-member">
-                <img src="https://i.postimg.cc/k4dvnTHK/427041484-122093247662220949-3430684692500234352-n.jpg" alt="Maxi Alancay">
-                <p>Maxi Alancay - Locutor</p>
+    <div id="lunaradio" style="width: 100%; height: 100%; background: url('https://i.postimg.cc/cCQdH4x1/logo-radio.png') center bottom / cover no-repeat rgb(0, 0, 0); overflow: hidden; display: block;" class="lunaaudioplayer">
+        <div id="lunaradiocontainerinside" style="position: relative; left: 0px; top: 0px; height: 100%; width: 100%; background: rgba(0, 0, 0, 0);">
+            <canvas id="lunaradiocanvas" width="1021" height="734" style="display: block; background: none; position: absolute; top: 0px;"></canvas>
+            <div id="lunaradioplayerwrapper" style="overflow: hidden; display: block; position: absolute; left: 0px; top: 0px; height: 100%; width: 100%;">
+                <div id="lunaradiobackgroundimage" style="position: absolute; left: 262.26px; top: 102.76px; height: 465.45px; width: 465.45px; filter: blur(36.7px); opacity: 0.5;">
+                    <div id="lunaradiobackgroundimage1" style="position: absolute; left: 0px; top: 0px; height: 100%; width: 100%; transition: opacity 1s; opacity: 0; background: url('https://i.postimg.cc/cCQdH4x1/logo-radio.png') 0% 0% / cover no-repeat;"></div>
+                    <div id="lunaradiobackgroundimage2" style="position: absolute; left: 0px; top: 0px; height: 100%; width: 100%; transition: opacity 1s; opacity: 1; background: url('https://i.postimg.cc/cCQdH4x1/logo-radio.png') 0% 0% / cover no-repeat;"></div>
+                </div>
+                <div id="lunaradiocoverwrapper" style="position: absolute; overflow: hidden; background: rgba(255, 255, 255, 0.1); user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); top: 21.01px; left: 340.67px; width: 310.3px; height: 310.3px; border: 14.68px solid rgba(255, 255, 255, 0.2); border-radius: 50%; cursor: pointer;">
+                    <div id="lunaradiocoverwrapper1" style="position: absolute; left: 0px; top: 0px; height: 100%; width: 100%; overflow: hidden; transition: opacity 1s; opacity: 0; background: url('https://i.postimg.cc/cCQdH4x1/logo-radio.png') 0% 0% / cover no-repeat; border-radius: 50%;"></div>
+                    <div id="lunaradiocoverwrapper2" style="position: absolute; left: 0px; top: 0px; height: 100%; width: 100%; overflow: hidden; transition: opacity 1s; opacity: 1; background: url('https://i.postimg.cc/cCQdH4x1/logo-radio.png') 0% 0% / cover no-repeat; border-radius: 50%;"></div>
+                </div>
+                <div id="lunaradioiconlive" style="position: absolute; fill: rgba(255, 255, 255, 0.3); user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); top: 611.055px; left: 603.9px; height: 45.875px; width: 45.875px;">
+                    <svg x="0px" y="0px" viewBox="-16 0 512 512.00113">
+                        <path d="m262.84375 140.558594c-12.699219 12.671875-33.28125 12.671875-45.980469 0-12.695312-12.671875-12.695312-33.21875 0-45.890625 12.699219-12.671875 33.28125-12.671875 45.980469 0 12.695312 12.671875 12.695312 33.21875 0 45.890625zm0 0"></path>
+                        <path d="m307.257812 189.726562c-3.960937 0-7.921874-1.511718-10.9375-4.539062-6.03125-6.039062-6.019531-15.824219.019532-21.851562 12.238281-12.214844 18.976562-28.453126 18.976562-45.722657s-6.738281-33.507812-18.976562-45.722656c-6.039063-6.03125-6.050782-15.8125-.019532-21.855469 6.027344-6.039062 15.8125-6.050781 21.851563-.019531 18.089844 18.054687 28.050781 42.058594 28.050781 67.597656 0 25.535157-9.960937 49.542969-28.050781 67.597657-3.015625 3.011718-6.964844 4.515624-10.914063 4.515624zm0 0"></path>
+                        <path d="m342.210938 235.222656c-3.960938 0-7.921876-1.511718-10.9375-4.535156-6.03125-6.042969-6.019532-15.824219.019531-21.855469 24.414062-24.367187 37.863281-56.761719 37.863281-91.21875s-13.449219-66.851562-37.863281-91.21875c-6.039063-6.03125-6.050781-15.8125-.019531-21.855469 6.027344-6.039062 15.8125-6.050781 21.851563-.019531 18.089844 18.054687 28.050781 42.058594 28.050781 67.597656 0 25.535157-9.960937 49.542969-28.050781 67.597657-3.015625 3.011718-6.964844 4.515624-10.914063 4.515624zm0 0"></path>
+                    </svg>
+                </div>
             </div>
-            <div class="team-member">
-                <img src="https://i.postimg.cc/htW29SKR/300800368-2142157372620630-6346787651457386802-n.jpg" alt="Alejandra Ríos">
-                <p>Alejandra Ríos - Locutora</p>
-            </div>
-            <div class="team-member">
-                <img src="https://i.postimg.cc/y8kPng9g/70390274-950603618607617-188537004026232832-n.jpg" alt="Heber Gutiérrez">
-                <p>Heber Gutiérrez - Locutor</p>
-            </div>
-            <div class="team-member">
-                <img src="https://i.postimg.cc/wMq5N7gB/70241084-2809048265795106-1609929698760982528-n.jpg" alt="Cristian García">
-                <p>Cristian García - Director de FM Puerto Viejo</p>
-            </div>
-        </div>
-        <div class="section">
-            <h2>Contacto</h2>
-            <p>Correo: contacto@fmpuertoviejo.com</p>
-            <p>Teléfono: +54 383548-2838</p>
-        </div>
-        <div class="section">
-            <h2>Nuestras Redes Sociales</h2>
-            <p>Síguenos en nuestras redes sociales para estar al tanto de todas nuestras novedades.</p>
-            <p>
-                <a href="https://facebook.com/fmpuertoviejo" target="_blank">Facebook</a> |
-                <a href="https://instagram.com/fmpuertoviejo" target="_blank">Instagram</a>
-            </p>
         </div>
     </div>
-    <footer>
-        <p>© 2024 FM PUERTO VIEJO 91.5. Todos los derechos reservados.</p>
-    </footer>
+    <audio id="audioPlayer" controls>
+        <source src="https://stream.zeno.fm/lsmgt6vhdxruv" type="audio/mpeg">
+        Tu navegador no soporta el elemento de audio.
+    </audio>
 </body>
 </html>
