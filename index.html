@@ -3,196 +3,248 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FM Puerto Viejo 91.5</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>Radio fm puerto viejo </title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-        }
-        body {
             font-family: Arial, sans-serif;
-            background: url('https://i.postimg.cc/m2DdMc2q/449217683-1807427823395976-5351199727574542858-n.jpg') no-repeat center center fixed;
-            background-size: cover;
-            color: white;
-            min-height: 100vh;
         }
-        .container {
+
+        .header {
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 20px;
         }
-        .radio-logo {
-            text-align: center;
-            padding: 40px 0;
-        }
-        .logo-circle {
+
+        .logo {
             width: 200px;
-            height: 200px;
-            background: white;
+        }
+
+        .logo img {
+            width: 100%;
+        }
+
+        .social-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .social-button {
+            background: #e85c41;
+            color: white;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+        }
+
+        .live-button {
+            background: #e85c41;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .nav {
+            background: #e85c41;
+            padding: 15px 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
             margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .search-container {
+            display: flex;
+            gap: 10px;
+        }
+
+        .search-input {
+            padding: 8px;
+            border-radius: 4px;
+            border: none;
+        }
+
+        .search-button {
+            background: #d64d34;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .player-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            background: #000;
+            min-height: 400px;
             display: flex;
             flex-direction: column;
-            justify-content: center;
             align-items: center;
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
         }
-        .station-name {
-            color: #1a237e;
-            font-size: 24px;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-        .frequency {
-            color: #e91e63;
-            font-size: 20px;
-        }
-        .player-container {
-            background: rgba(0, 0, 0, 0.5);
+
+        .player-controls {
+            width: 100%;
+            max-width: 600px;
+            background: rgba(255, 255, 255, 0.1);
             padding: 20px;
             border-radius: 10px;
-            margin-top: 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
         }
-        .now-playing {
+
+        .audio-player {
+            width: 100%;
+        }
+
+        .status {
+            color: white;
             text-align: center;
-            font-size: 24px;
-            margin-bottom: 20px;
+            font-size: 1.2em;
         }
-        .controls {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 20px;
-            margin-bottom: 20px;
-        }
-        .play-button {
-            width: 60px;
-            height: 60px;
-            background: #e91e63;
+
+        .play-pause {
+            background: #e85c41;
+            color: white;
             border: none;
-            border-radius: 50%;
+            padding: 15px 30px;
+            border-radius: 25px;
             cursor: pointer;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .play-button:hover {
-            background: #c2185b;
-        }
-        .volume-container {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            width: 80%;
+            font-size: 1.1em;
+            font-weight: bold;
             margin: 0 auto;
+            display: block;
         }
-        .volume-icon {
-            cursor: pointer;
+
+        .play-pause:hover {
+            background: #d64d34;
         }
-        .volume-slider {
-            flex-grow: 1;
-            height: 4px;
-            background: rgba(255, 255, 255, 0.3);
-            position: relative;
-            cursor: pointer;
-            border-radius: 2px;
-        }
-        .volume-bar {
-            width: 90%;
-            height: 100%;
-            background: #e91e63;
-            position: absolute;
-            border-radius: 2px;
-            transition: width 0.1s ease;
-        }
-        .volume-knob {
-            position: absolute;
-            right: -9px;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 18px;
-            height: 18px;
-            background: white;
-            border-radius: 50%;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-            cursor: grab;
-        }
-        .volume-knob:active {
-            cursor: grabbing;
-        }
-        .volume-percentage {
-            min-width: 40px;
-            text-align: right;
+
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .header {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="radio-logo">
-            <div class="logo-circle">
-                <img src="https://i.postimg.cc/cCQdH4x1/logo-radio.png" alt="FM Puerto Viejo Logo" style="width: 100px; height: 100px;">
-                <div class="station-name">FM PUERTO VIEJO</div>
-                <div class="frequency">91.5 MHz</div>
+    <header class="header">
+        <div class="logo">
+            <img src="https://i.postimg.cc/cHgvTJ2x/logo-radio.png">
+        </div>
+        <div class="social-buttons">
+            <a href="#" class="social-button">f</a>
+            <a href="#" class="social-button">t</a>
+        </div>
+        <button onclick="togglePlay()" class="live-button">Escucha la Radio en vivo</button>
+    </header>
+
+    <nav class="nav">
+        <div class="nav-container">
+            <ul class="nav-links">
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#">Política</a></li>
+                <li><a href="#">Policiales</a></li>
+                <li><a href="#">Actualidad</a></li>
+                <li><a href="#">Interés General</a></li>
+                <li><a href="#">Deportes</a></li>
+                <li><a href="#">Cultura</a></li>
+            </ul>
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="Buscar...">
+                <button class="search-button">Buscar</button>
             </div>
         </div>
+    </nav>
+
+    <main>
         <div class="player-container">
-            <div class="now-playing">
-                Transmitiendo en vivo
-            </div>
-            <div class="controls">
-                <button class="play-button" id="playButton">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
-                        <path d="M8 5v14l11-7z"/>
-                    </svg>
-                </button>
-            </div>
-            <div class="volume-container">
-                <div class="volume-icon" id="volumeIcon">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
-                        <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
-                    </svg>
-                </div>
-                <div class="volume-slider" id="volumeSlider">
-                    <div class="volume-bar" id="volumeBar">
-                        <div class="volume-knob"></div>
-                    </div>
-                </div>
-                <div class="volume-percentage" id="volumePercentage">90%</div>
+            <div class="player-controls">
+                <div class="status" id="statusText">fm puerto viejo</div>
+                <audio id="audioPlayer" class="audio-player" controls>
+                    <source src="https://stream.zeno.fm/lsmgt6vhdxruv" type="audio/mpeg">
+                    Tu navegador no soporta el elemento de audio.
+                </audio>
+                <button onclick="togglePlay()" class="play-pause" id="playPauseBtn">▶ Reproducir</button>
             </div>
         </div>
-    </div>
+    </main>
+
     <script>
-        let isPlaying = false;
-        let isDragging = false;
-        let currentVolume = 90;
-        let isMuted = false;
-        let previousVolume = 90;
-        const audio = new Audio('https://stream.zeno.fm/lsmgt6vhdxruv');
-        
-        // Play/Pause button functionality
-        $('#playButton').click(function() {
-            isPlaying = !isPlaying;
-            if (isPlaying) {
+        const audio = document.getElementById('audioPlayer');
+        const playPauseBtn = document.getElementById('playPauseBtn');
+        const statusText = document.getElementById('statusText');
+
+        function togglePlay() {
+            if (audio.paused) {
                 audio.play();
-                $(this).html('<svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>');
+                playPauseBtn.textContent = '⏸ Pausar';
+                statusText.textContent = '🎵 Reproduciendo en vivo...';
             } else {
                 audio.pause();
-                $(this).html('<svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>');
+                playPauseBtn.textContent = '▶ Reproducir';
+                statusText.textContent = 'fm puerto viejo';
             }
-        });
-        
-        // Volume slider functionality
-        function updateVolumeDisplay(volume) {
-            $('#volumeBar').css('width', volume + '%');
-            $('#volumePercentage').text(volume + '%');
-            updateVolumeIcon(volume);
         }
-        
-        function updateVolumeIcon(volume) {
-            let icon;
-            if (volume === 0) {
-                icon = '<svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/></svg>';
-            } else if (volume < 50) {
-                icon = '<svg width="24" height="24" viewBox="0 0 24 24" fill="white"><[_{{{CITATION{{{_1{](https://github.com/la9una/web/tree/ba1073ae044ebb7b538a3b13f0f9598f7c410bb6/docs%2Fbootstrap%2Falignci.md)[_{{{CITATION{{{_2{](https://github.com/kazixma/material-ui-tab-fixed/tree/bc8b54d5fd3b1ecd31f8e5f7c0987af9599d484a/packages%2Fmaterial-ui-icons%2Fsrc%2FVolumeUp.js)[_{{{CITATION{{{_3{](https://github.com/Ngounse/next-js-api-github/tree/7561101493efcca1cf2198ad58825d73acc6bd4d/node_modules%2F@material-ui%2Ficons%2FVolumeUpSharp.js)[_{{{CITATION{{{_4{](https://github.com/andy0124/LicensePage/tree/02ad67ded1258a79dc899c83eea3e596d0406178/node_modules%2F@vue%2Fcli-ui%2Fdist%2Fjs%2Fchunk-vendors.e676184e.js)[_{{{CITATION{{{_5{](https://github.com/amauryverschooren/Home-Assistant/tree/e7114308b8c5d2c993851a166e86b3ed6e7cae9a/www%2Fcommunity%2Fspotify-card%2Fspotify-card.js)[_{{{CITATION{{{_6{](https://github.com/RoqCode/anners_mag/tree/823faec622839d1949a232639ad57bc16c26be81/js%2Farticle_js%2Faudioplayer_inject.js)[_{{{CITATION{{{_7{](https://github.com/frolin/i3_config/tree/99087c8b8df7f9d25e4ae129b04f28a23331e519/google-chrome%2FDefault%2FExtensions%2Ffahmaaghhglfmonjliepjlchgpgfmobi%2F1.399.2_0%2Fpolymer%2Fminiplayer_polymer_v2%2Fminiplayer_polymer_v2__sk.js)[_{{{CITATION{{{_8{](https://github.com/Attaullah7396/BloodDonor/tree/c056c1a2c2a06edb5d3445df67bb07abac276de3/bower_components%2Fangular-material-icons%2Fangular-material-icons.min.js)[_{{{CITATION{{{_9{](https://github.com/dameradev/sanity-gatsby-blog/tree/0a3e822dfcd265ffee0400be2e09423677df724f/studio%2Fgrapqhl%2Fstatic%2Fjs%2Fapp.bundle.js)[_{{{CITATION{{{_10{](https://github.com/coco-napky/material-ui-playground/tree/2b94497d80745e67269418f30c63155f0b940927/src%2Fsvg-icons%2Fav%2Fvolume-off.js)[_{{{CITATION{{{_11{](https://github.com/GSA/ngx-uswds-icons/tree/5e486e92102cf7b8a0224218d538524cbcd71a2d/projects%2Ficons%2Fsrc%2Flib%2Fuswds-icons%2FuswdsVolumeOff.ts)
+
+        audio.addEventListener('playing', function() {
+            playPauseBtn.textContent = '⏸ Pausar';
+            statusText.textContent = '🎵 Reproduciendo en vivo...';
+        });
+
+        audio.addEventListener('pause', function() {
+            playPauseBtn.textContent = '▶ Reproducir';
+            statusText.textContent = 'fm puerto viejo 91.5';
+        });
+
+        audio.addEventListener('error', function() {
+            statusText.textContent = '❌ Error de transmisión. Intente nuevamente.';
+            playPauseBtn.textContent = '▶ Reproducir';
+        });
+    </script>
+</body>
+</html>
