@@ -244,6 +244,102 @@
         audio.addEventListener('error', function() {
             statusText.textContent = '❌ Error de transmisión. Intente nuevamente.';
             playPauseBtn.textContent = '▶ Reproducir';
+
+            <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Radio fm puerto viejo</title>
+    <style>
+        /* Tus estilos aquí */
+    </style>
+</head>
+<body>
+    <header class="header">
+        <!-- Tu código de encabezado aquí -->
+    </header>
+
+    <nav class="nav">
+        <!-- Tu código de navegación aquí -->
+    </nav>
+
+    <main>
+        <div class="player-container">
+            <!-- Tu código de reproductor aquí -->
+        </div>
+        <div id="news-section">
+            <h2>Noticias del Día</h2>
+            <div id="news-content"></div>
+        </div>
+    </main>
+
+    <script>
+        const apiKey = '<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Radio fm puerto viejo</title>
+    <style>
+        /* Tus estilos aquí */
+    </style>
+</head>
+<body>
+    <header class="header">
+        <!-- Tu código de encabezado aquí -->
+    </header>
+
+    <nav class="nav">
+        <!-- Tu código de navegación aquí -->
+    </nav>
+
+    <main>
+        <div class="player-container">
+            <!-- Tu código de reproductor aquí -->
+        </div>
+        <div id="news-section">
+            <h2>Noticias del Día</h2>
+            <div id="news-content"></div>
+        </div>
+    </main>
+
+    <script>
+        const apiKey = '242524d939d1444fba864f3187c20bb5';
+        const url = `https://newsapi.org/v2/top-headlines?country=ar&apiKey=${apiKey}`;
+
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                const newsContainer = document.getElementById('news-content');
+                data.articles.forEach(article => {
+                    const articleElement = document.createElement('div');
+                    articleElement.innerHTML = `<h3>${article.title}</h3><p>${article.description}</p>`;
+                    newsContainer.appendChild(articleElement);
+                });
+            })
+            .catch(error => console.error('Error:', error));
+    </script>
+</body>
+</html>
+';
+        const url = `https://newsapi.org/v2/top-headlines?country=ar&apiKey=${apiKey}`;
+
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                const newsContainer = document.getElementById('news-content');
+                data.articles.forEach(article => {
+                    const articleElement = document.createElement('div');
+                    articleElement.innerHTML = `<h3>${article.title}</h3><p>${article.description}</p>`;
+                    newsContainer.appendChild(articleElement);
+                });
+            })
+            .catch(error => console.error('Error:', error));
+    </script>
+</body>
+</html>
+
         });
     </script>
 </body>
