@@ -1,28 +1,40 @@
-<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-<script src="https://extassisnetwork.com/player/Luna/luna.js"></script>
-<div id="extassisnetwork" style="width:700px; height:800px; margin: 0 auto;"></div>
-<script>
-  $("#extassisnetwork").lunaradio({
-    streamurl: "https://stream.zeno.fm/lsmgt6vhdxruv",
-    radioname: "FM PUERTO VIEJO",
-    coverimage: "https://i.postimg.cc/cCQdH4x1/logo-radio.png",
-    onlycoverimage: false,
-    userinterface: "big",
-    backgroundcolor: "#ffffff",
-    fontcolor: "#000000",
-    hightlightcolor: "#969696",
-    fontname: "Be Vietnam",
-    googlefont: "Be Vietnam",
-    fontratio: "0.4",
-    scroll: "true",
-    coverstyle: "animated",
-    usevisualizer: "real",
-    visualizertype: "6",
-    streamtype: "shoutcast2",
-    shoutcastpath: "/stream",
-    shoutcastid: "1",
-    metadatainterval: "5000",
-    volume: "100",
-    usestreamcorsproxy: "true",
-  });
-</script>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FM PUERTO VIEJO 91.5</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <img src="https://i.postimg.cc/rpg6tpRy/logo.png" alt="FM PUERTO VIEJO 91.5 Logo">
+        <nav>
+            <ul>
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#">Perfil</a></li>
+                <li><a href="#">Podcasts</a></li>
+                <li><a href="#">Noticias</a></li>
+                <li><a href="#">Contacto</a></li>
+            </ul>
+        </nav>
+        <div class="social-media">
+            <a href="https://www.facebook.com/Puertoviejoproducciones" target="_blank">Facebook</a>
+            <a href="https://www.instagram.com/puertadecorralquemado_prensa/" target="_blank">Instagram</a>
+        </div>
+    </header>
+    <main>
+        <section class="player">
+            <audio controls>
+                <source src="https://stream.zeno.fm/lsmgt6vhdxruv" type="audio/mpeg">
+                Tu navegador no soporta el elemento de audio.
+            </audio>
+        </section>
+        <section class="news">
+            <h2>Noticias</h2>
+            <div id="news-container"></div>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
